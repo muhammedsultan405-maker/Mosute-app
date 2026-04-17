@@ -1,239 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mosute Engineering | Premium Engineering Solutions</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-
-<!-- AOS Animation -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<style>
-body{
-  background:#000;
-  color:#fff;
-  font-family:Arial, sans-serif;
-}
-
-/* NAV */
-nav{
-  position:fixed;
-  width:100%;
-  top:0;
-  z-index:999;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid #222;
-}
-
-nav ul li:hover .dropdown{
-  display:block;
-}
-
-.dropdown{
-  display:none;
-  position:absolute;
-  background:#111;
-  padding:20px;
-  border:1px solid #333;
-  width:300px;
-}
-
-/* HERO VIDEO */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero video{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0.35;
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-}
-
-/* COUNTERS */
-.counter{
-  font-size:40px;
-  font-weight:bold;
-  color:#00aaff;
-}
-
-/* GALLERY */
-.gallery img{
-  width:100%;
-  border-radius:10px;
-  transition:0.4s;
-}
-.gallery img:hover{
-  transform:scale(1.05);
-}
-
-/* CLIENT LOGOS (STATIC GRID - NOT SLIDING LEFT) */
-.clients{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:20px;
-  opacity:0.8;
-}
-.clients img{
-  width:100px;
-  filter:grayscale(100%);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mosute Engineering</title>
+    <script src="https://telegram.org"></script>
+    <script src="https://tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        body { background: #0b0f1a; color: #fff; font-family: 'Segoe UI', sans-serif; }
+        .card { background: #161b2b; border: 1px solid #2d334a; border-radius: 12px; }
+        .accent { color: #00aaff; }
+        .btn-primary { background: #0066ff; transition: 0.3s; }
+        .btn-primary:hover { background: #0052cc; }
+    </style>
 </head>
+<body class="pb-10">
 
-<body>
+    <!-- Header -->
+    <nav class="p-4 border-b border-gray-800 bg-[#0b0f1a] sticky top-0 z-50 flex justify-between items-center">
+        <h1 class="font-bold text-xl accent">MOSUTE <span class="text-white text-sm">ENG.</span></h1>
+        <button onclick="window.Telegram.WebApp.close()" class="text-gray-400"><i class="fas fa-times"></i></button>
+    </nav>
 
-<!-- NAVBAR + MEGA MENU -->
-<nav>
-  <div class="flex justify-between p-4 items-center">
-    <h1 class="font-bold text-xl">MOSUTE ENGINEERING</h1>
-
-    <ul class="flex gap-6 text-sm relative">
-      <li>HOME</li>
-
-      <li class="relative cursor-pointer">
-        SERVICES
-
-        <div class="dropdown">
-          <p>Electrical Systems</p>
-          <p>Automation</p>
-          <p>Networking</p>
-          <p>Smart Systems</p>
+    <!-- Services Section -->
+    <section class="p-5">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Our Services</h2>
+        <div class="grid grid-cols-1 gap-4">
+            <div class="card p-4 flex items-start gap-4">
+                <div class="bg-blue-900/30 p-3 rounded-lg accent"><i class="fas fa-bolt fa-lg"></i></div>
+                <div>
+                    <h3 class="font-bold">Electrical Systems</h3>
+                    <p class="text-sm text-gray-400">Installation, maintenance, and power management.</p>
+                </div>
+            </div>
+            <div class="card p-4 flex items-start gap-4">
+                <div class="bg-blue-900/30 p-3 rounded-lg accent"><i class="fas fa-robot fa-lg"></i></div>
+                <div>
+                    <h3 class="font-bold">Industrial Automation</h3>
+                    <p class="text-sm text-gray-400">Smart control systems and PLC programming.</p>
+                </div>
+            </div>
+            <div class="card p-4 flex items-start gap-4">
+                <div class="bg-blue-900/30 p-3 rounded-lg accent"><i class="fas fa-network-wired fa-lg"></i></div>
+                <div>
+                    <h3 class="font-bold">Networking</h3>
+                    <p class="text-sm text-gray-400">Robust IT infrastructure and smart systems.</p>
+                </div>
+            </div>
         </div>
-      </li>
+    </section>
 
-      <li>ABOUT</li>
-      <li>CAPABILITIES</li>
-      <li>SALES</li>
-      <li class="text-blue-400">CONTACT</li>
-    </ul>
-  </div>
-</nav>
+    <!-- Service Request Form -->
+    <section class="p-5">
+        <div class="card p-6">
+            <h2 class="text-xl font-bold mb-4">Service Request</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-xs text-gray-400 block mb-1">Service Type</label>
+                    <select id="serviceType" class="w-full bg-[#0b0f1a] border border-gray-700 rounded-lg p-3 outline-none focus:border-blue-500">
+                        <option>Electrical</option>
+                        <option>Automation</option>
+                        <option>Networking</option>
+                        <option>Consultation</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400 block mb-1">Description</label>
+                    <textarea id="desc" placeholder="Tell us about your project..." class="w-full bg-[#0b0f1a] border border-gray-700 rounded-lg p-3 h-24 outline-none focus:border-blue-500"></textarea>
+                </div>
+                <button onclick="sendRequest()" class="w-full btn-primary py-4 rounded-xl font-bold">Submit Request</button>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO VIDEO -->
-<section class="hero">
-  <video autoplay muted loop>
-    <source src="https://cdn.coverr.co/videos/coverr-engineering-factory-8570/1080p.mp4" type="video/mp4">
-  </video>
+    <!-- Contact Info -->
+    <section class="p-5 text-center">
+        <h2 class="text-gray-500 text-sm mb-4">Need immediate help?</h2>
+        <div class="flex justify-center gap-6">
+            <a href="tel:+251939879030" class="accent"><i class="fas fa-phone-alt fa-2x"></i></a>
+            <a href="https://wa.me" class="text-green-500"><i class="fab fa-whatsapp fa-2x"></i></a>
+        </div>
+        <p class="mt-4 text-xs text-gray-600">Established April 2026 | Addis Ababa</p>
+    </section>
 
-  <div class="hero-content" data-aos="fade-up">
-    <h1 class="text-4xl font-bold">
-      Professional Engineering Solutions for Electrical, Automation, and Networking Systems.
-    </h1>
-    <p class="mt-4 text-gray-300">
-      Mosute Engineering is a professional engineering company established in April 2026...
-    </p>
-    <div class="mt-6">
-      <button class="bg-blue-600 px-6 py-3">Request Service</button>
-      <button class="border px-6 py-3 ml-2">Request Quote</button>
-    </div>
-  </div>
-</section>
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+        tg.ready();
 
-<!-- ABOUT -->
-<section class="p-20" data-aos="fade-up">
-  <h2 class="text-blue-400">ABOUT US</h2>
-  <h1 class="text-3xl font-bold">Founded in April 2026</h1>
-  <p class="mt-4 text-gray-400">
-    Mosute Engineering was founded in Addis Ababa...
-  </p>
+        function sendRequest() {
+            const type = document.getElementById('serviceType').value;
+            const desc = document.getElementById('desc').value;
 
-  <div class="grid grid-cols-2 gap-6 mt-10">
-    <div>
-      <h3>OUR MISSION</h3>
-      <p class="text-gray-400">Modern engineering solutions...</p>
-    </div>
-    <div>
-      <h3>OUR VISION</h3>
-      <p class="text-gray-400">International expansion...</p>
-    </div>
-  </div>
-</section>
+            if(!desc) {
+                tg.showAlert("Please describe your request.");
+                return;
+            }
 
-<!-- COUNTERS -->
-<section class="p-20 grid grid-cols-4 text-center">
-  <div>
-    <div class="counter" id="c1">0</div>
-    Projects
-  </div>
-  <div>
-    <div class="counter" id="c2">0</div>
-    Clients
-  </div>
-  <div>
-    <div class="counter" id="c3">0</div>
-    Engineers
-  </div>
-  <div>
-    <div class="counter" id="c4">0</div>
-    Systems Installed
-  </div>
-</section>
-
-<!-- CLIENT LOGOS -->
-<section class="p-20">
-  <h2 class="text-center mb-10">OUR CLIENTS</h2>
-  <div class="clients">
-    <img src="https://via.placeholder.com/100x50"/>
-    <img src="https://via.placeholder.com/100x50"/>
-    <img src="https://via.placeholder.com/100x50"/>
-    <img src="https://via.placeholder.com/100x50"/>
-    <img src="https://via.placeholder.com/100x50"/>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="p-20">
-  <h2 class="text-center mb-10">PROJECT GALLERY</h2>
-  <div class="grid grid-cols-3 gap-4 gallery">
-    <img src="https://source.unsplash.com/600x400/?factory"/>
-    <img src="https://source.unsplash.com/600x400/?engineering"/>
-    <img src="https://source.unsplash.com/600x400/?automation"/>
-  </div>
-</section>
-
-<!-- WHATSAPP -->
-<a href="https://wa.me/251939879030" target="_blank"
-style="position:fixed;bottom:20px;right:20px;background:#25D366;
-color:#fff;padding:15px;border-radius:50%;font-size:20px;">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
-<script>
-// COUNTERS
-function count(id, end){
-  let i=0;
-  let el=document.getElementById(id);
-  let interval=setInterval(()=>{
-    i++;
-    el.innerText=i;
-    if(i>=end) clearInterval(interval);
-  },20);
-}
-count("c1",120);
-count("c2",80);
-count("c3",25);
-count("c4",300);
-</script>
-
+            tg.HapticFeedback.impactOccurred('medium');
+            
+            // This sends a message back to the bot
+            tg.sendData(JSON.stringify({
+                service: type,
+                details: desc
+            }));
+            
+            tg.showAlert("Request Submitted! Our engineers will review it.");
+        }
+    </script>
 </body>
 </html>
